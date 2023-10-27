@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Date</th>
+           <th>Image</th>
+          <th>Types</th>
+        </tr>
+        <tbody *ngFor="let motors of motors">
+          <tr>
+            <td>{{ motors.idMotors }}</td>
+            <td>{{ motors.nomMotors }}</td>
+            <td>{{ motors.prixMotors }}</td>
+            <td>{{ motors.dateCreation | date : "dd/MM/yyyy" }}</td>
+            <td><img class="card-img-top img-responsive"
+              src="{{apiurl+'/image/load/'+motors.idMotors}}"
+
+              style = "height :50px;width:100px">
+              </td>
+            <td>{{ motors.type?.nameTyp }}</td>
+
+            <td>
+              <a
+                *ngIf="authService.isAdmin()"
+                class="btn btn-danger"
+                (click)="supprimerMotors(motors)"
+                >Delete</a
+              >
+            </td>
+            <td>
+              <a
+                *ngIf="authService.isAdmin()"
+                class="btn btn-success"
+                [routerLink]="['/updateMotors', motors.idMotors]"
+                >Edit</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

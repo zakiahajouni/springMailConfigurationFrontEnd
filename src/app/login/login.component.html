@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="row justify-content-md-center">
+      <div class="col-md-6">
+          <div class="card">
+              <div class="card-header bg-primary text-white">
+                  <h5 class="mb-0">Login</h5>
+              </div>
+              <div class="card-body">
+                  <div class="alert alert-danger" *ngIf="err==1">
+                      <strong>login ou mot de passe erronés..</strong>
+                  </div>
+                  <form>
+                      <div class="form-group">
+                          <label for="username">User Name:</label>
+                          <input type="text" id="username" name="username" class="form-control" [(ngModel)]="user.username" placeholder="Enter your username">
+                      </div>
+                      <div class="form-group">
+                          <label for="password">Password:</label>
+                          <input type="password" id="password" name="password" class="form-control" [(ngModel)]="user.password" placeholder="Enter your password">
+                      </div>
+                      <div class="d-flex justify-content-between">
+                          <button type="button" (click)="onLoggedin()" class="btn btn-success">Login</button>
+                          <!-- You will need to implement the 'onRegister()' method in your component -->
+                          <button type="button" routerLink="/register" class="btn btn-info">Don't have any account? Register</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
